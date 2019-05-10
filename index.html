@@ -10,39 +10,10 @@
   <title>task14.1</title>
 </head>
 <body>
-
-  <div class="carousel">
-    <div class="carousel-cell" id="carousel-cell-1" style="background-image:url('images/image-1.jpg')">
-      <div class="container">
-        <p class="slide-header">Slide 1</p>
-      </div>
-    </div>
-    <div class="carousel-cell" id="carousel-cell-2" style="background-image:url('images/image-2.jpg')">
-      <div class="container">
-        <p class="slide-header">Slide 2</p>
-      </div>
-    </div>
-    <div class="carousel-cell" id="carousel-cell-3" style="background-image:url('images/image-3.jpg')">
-      <div class="container">
-        <p class="slide-header">Slide 3</p>
-      </div>
-    </div>
-    <div class="carousel-cell" id="carousel-cell-4" style="background-image:url('images/image-4.jpg')">
-      <div class="container">
-        <p class="slide-header">Slide 4</p>
-      </div>
-    </div>
-    <div class="carousel-cell" id="carousel-cell-5" style="background-image:url('images/image-5.jpg')">
-      <div class="container">
-        <p class="slide-header">Slide 5</p>
-      </div>
-    </div>
-  </div>
+  <div id="carousel-container"></div>
 
   <div class="progress-bar"></div>
-
   <button class="button-restart" type="button">Restart carousel</button>
-
   <p class="nav">
     View:
     <a class="nav-item" href="#carousel-cell-1">Slide 1</a>
@@ -51,8 +22,26 @@
     <a class="nav-item" href="#carousel-cell-4">Slide 4</a>
     <a class="nav-item" href="#carousel-cell-5">Slide 5</a>
   </p>
-    <script type="text/javascript" src="vendor/flickity.pkgd.min.js"></script>
-    <script type="text/javascript" src="vendor/hash.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-  </body>
-  </html>
+
+  <script id="template-carousel" type="x-tmpl-mustache">
+    <div class="carousel">
+      {{{carouselItems}}}
+    </div>
+  </script>
+
+  <script id="template-carousel-cell" type="x-tmpl-mustache">
+    <div class="carousel-cell" id="carousel-cell-{{id}}">
+      <div class="container">
+        <p class="slide-header">{{title}}</p>
+        <img src="{{image}}" alt="{{alt}}">
+        <p>{{description}}</p>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/javascript" src="vendor/flickity.pkgd.min.js"></script>
+  <script type="text/javascript" src="vendor/hash.js"></script>
+  <script type="text/javascript" src="vendor/mustache.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
